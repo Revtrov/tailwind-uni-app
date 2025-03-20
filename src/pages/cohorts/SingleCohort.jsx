@@ -42,6 +42,7 @@ function SingleCohort() {
       const data = await response.json()
       const studentResponse = await fetch("/api/student/?cohort=" + id);
       const studentData = await studentResponse.json()
+      document.title = "Cohort -" + id
       setCohort(data);
       setStudents(studentData)
       setLoading(false)

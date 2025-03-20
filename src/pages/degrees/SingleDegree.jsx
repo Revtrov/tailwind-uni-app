@@ -6,12 +6,17 @@ function SingleDegree() {
   const [degree, setDegrees] = useState()
   const [cohorts, setCohorts] = useState();
   const [loading, setLoading] = useState(true)
+  const [expandedCohort, setExpandedCohort] = useState(null);
+  const toggleExpand = (id) => {
+    setExpandedCohort(expandedCohort === id ? null : id);
+  };
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("/api/degree/" + code);
       const cohortResponse = await fetch("/api/cohort/?degree=" + code);
       const data = await response.json();
       const cohortData = await cohortResponse.json();
+      document.title = "Degree -" + code
       setDegrees(data);
       setCohorts(cohortData);
       setLoading(false)
@@ -64,17 +69,33 @@ function SingleDegree() {
           <div>
             <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">Cohorts:</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-2">
-              {cohorts.map((cohort, key) => (
-                <li key={key} className="bg-gray-200 dark:bg-gray-700 rounded-md px-3 py-2 flex items-center justify-between">
-                  <span className="text-gray-800 dark:text-gray-300">{cohort.name}</span>
-                  <Link
-                    className="bg-blue-500 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600"
-                    to={`/cohorts/${cohort.id}`}
-                  >
-                    View
-                  </Link>
-                </li>
-              ))}
+            {cohorts.map((cohort) => (
+        <li
+          key={cohort.id}
+          className="bg-gray-200 dark:bg-gray-700 rounded-md px-3 py-2"
+        >
+          {/* Main Row (Cohort Name + View Button) */}
+          <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleExpand(cohort.id)}>
+            <span className="text-gray-800 dark:text-gray-300">{cohort.name}</span>
+            <Link
+              className="bg-blue-500 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-400 dark:bg-blue-700 dark:hover:bg-blue-600"
+              to={`/cohorts/${cohort.id}`}
+              onClick={(e) => e.stopPropagation()} // Prevents click from toggling expand
+            >
+              View
+            </Link>
+          </div>
+
+          {/* Expanded Details */}
+          {expandedCohort === cohort.id && (
+            <div className="mt-2 p-3 bg-gray-300 dark:bg-gray-600 rounded-md text-gray-900 dark:text-gray-200">
+              <p><strong>Year:</strong> {cohort.year}</p>
+              <p><strong>Degree:</strong> {cohort.degree}</p>
+              <p><strong>ID:</strong> {cohort.id}</p>
+            </div>
+          )}
+        </li>
+      ))}
             </ul>
           </div>
           {/* <div className="flex justify-end mt-4 md:mt-0">

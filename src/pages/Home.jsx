@@ -17,7 +17,7 @@ function Home() {
         ></div>
         <div className="relative container mx-auto px-6 py-24 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6 text-white dark:text-gray-100">
-            Welcome to DCU
+            Welcome to Uniportal
           </h1>
           <p className="text-xl sm:text-2xl mb-8 text-gray-200 dark:text-gray-300">
           Through education, research and innovation, we are focused on delivering real impact, and addressing global challenges in collaboration with our partners and stakeholders.

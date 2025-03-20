@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 function CreateDegree() {
+  useEffect(()=>{
+    document.title="Create Degree"
+  },[])
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     full_name: "",
