@@ -5,7 +5,7 @@ import logo from '../assets/react.svg';
 function Layout() {
   const [isOpen, setIsOpen] = useState(false);
   return (<>
-    <header className="bg-blue-600 text-white shadow-md">
+    <header className="bg-blue-600 text-white shadow-md w-full h-[8vh]">
       <div className="container mx-auto flex justify-between items-center p-4">
         <Link className="text-2xl font-bold flex items-center" to="/">
           <img src={logo} className='px-2 pe-5' />

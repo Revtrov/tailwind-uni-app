@@ -1,35 +1,39 @@
-import { useState } from "react"
-function CreateDegree(){
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
+function CreateDegree() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    full_name:"",
-    shortcode:"",
+    full_name: "",
+    shortcode: "",
   })
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true);
-    try{
-      const response = fetch("/api/degree/", {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
+    try {
+      const response = await fetch("/api/degree/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
         },
-        body:JSON.stringify(formData)
+        body: JSON.stringify(formData)
       })
-      if(!(await response).ok){
+      if (!(await response).ok) {
         console.error((await (await response).json()))
+      }else{
+        navigate("/degrees/all")
       }
-    }catch(err){
+    } catch (err) {
       console.error(err)
-    }finally{
+    } finally {
       setLoading(false)
     }
-    
+
   }
-  return(
+  return (
     <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Create a Degree</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
