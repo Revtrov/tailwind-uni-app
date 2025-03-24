@@ -6,9 +6,15 @@ import AllDegrees from './pages/degrees/AllDegrees';
 import CreateDegree from './pages/degrees/CreateDegree';
 
 import SingleCohort from './pages/cohorts/SingleCohort'
+import AllCohorts from './pages/cohorts/AllCohorts';
+import CreateCohort from './pages/cohorts/CreateCohort';
 
 import SingleStudent from './pages/students/SingleStudent'
 
+import AllModules from './pages/modules/AllModules';
+import SingleModule from './pages/modules/SingleModule';
+import ModulesDeliveredTo from './pages/modules/ModulesDeliveredTo';
+import CreateModule from './pages/modules/CreateModule';
 
 function App() {
   return (
@@ -20,15 +26,18 @@ function App() {
           <Route path="/degrees/:code" element={<SingleDegree />} />
           <Route path="/degrees/create" element={<CreateDegree />} />
 
+          <Route path="/cohorts/all" element={<AllCohorts />} />
           <Route path="/cohorts/:id" element={<SingleCohort />} />
+          <Route path="/cohorts/create" element={<CreateCohort />} />
 
           <Route path="/students/:id" element={<SingleStudent />} />
-          {/* <Route path="/cohorts/all" element={<AllCohorts />} />
-          <Route path="/cohorts/create" element={<CreateCohort />} />
+
           <Route path="/modules/all" element={<AllModules />} />
-          <Route path="/modules/:code" element={<Module />} />
-          <Route path="/modules/:delivered_to" element={<Module />} />
+          <Route path="/modules/:code" element={<SingleModule />} />
+          <Route path="/modules" element={<ModulesDeliveredTo />} />
           <Route path="/modules/create" element={<CreateModule />} />
+
+          {/* 
           
           <Route path="/students/create" element={<CreateStudent />} />
           <Route path="/students/:id/module/:code" element={<SetStudentModuleGrade />} /> */}

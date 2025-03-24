@@ -20,12 +20,13 @@ function Home() {
             Welcome to Uniportal
           </h1>
           <p className="text-xl sm:text-2xl mb-8 text-gray-200 dark:text-gray-300">
-          Through education, research and innovation, we are focused on delivering real impact, and addressing global challenges in collaboration with our partners and stakeholders.
+          A portal for managing your university.
           </p>
           <Link
+          to={"/degrees/all/"}
             className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-600"
           >
-            Apply Now
+            View Degrees
           </Link>
         </div>
       </section>
@@ -34,57 +35,44 @@ function Home() {
       <section className="container mx-auto py-16 px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-white">
-            Why Choose Us?
+            Our Features
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">
-            Discover the unique features that make our university stand out.
+            Discover the unique features that make our portal so useful.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           {/* Highlight 1 */}
           <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
-              Top Ranking In Ireland
+              Degrees, Cohorts, Modules and more!
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              DCU is ranked No 1 in Ireland for Graduate Employment Rate.
+              All the tools you would need for managing your Courses.
             </p>
           </div>
           {/* Highlight 2 */}
           <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
-              World-Class Faculty
+              Detailed Student Breakdowns
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Learn from experienced professors and industry leaders.
+              Our portal has detailed student entries that make managing your students easy.
             </p>
           </div>
           {/* Highlight 3 */}
           <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
-              State-of-the-Art Facilities
+              Concise and Simple UI
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Access cutting-edge labs, libraries, and campus spaces for learning and innovation.
+              Access cutting-edge UI to view and update nessessary information.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto text-center">
-          <p className="text-lg">&copy; 2025 DCU</p>
-          <div className="mt-4">
-            <Link  className="text-gray-400 hover:text-white px-4">
-              Privacy Policy
-            </Link>
-            <Link  className="text-gray-400 hover:text-white px-4">
-              Terms of Service
-            </Link>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   )
 }

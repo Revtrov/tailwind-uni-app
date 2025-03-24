@@ -17,14 +17,16 @@ function Layout() {
             {/* Bank icons created by Freepik - Flaticon */}
             Uniportal
           </Link>
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden lg:flex space-x-6">
             {/* Navigation */}
-            <Link className="hover:text-gray-200" to="/">Home</Link>
             <Link className="hover:text-gray-200" to="/degrees/all">All Degrees</Link>
-            <Link className="hover:text-gray-200" to="/degrees/COMSCI">COMSCI</Link>
             <Link className="hover:text-gray-200" to="/degrees/create">Create Degree</Link>
+            <Link className="hover:text-gray-200" to="/modules/all">All Modules</Link>
+            <Link className="hover:text-gray-200" to="/modules/create">Create Module</Link>
+            <Link className="hover:text-gray-200" to="/cohorts/all">All Cohorts</Link>
+            <Link className="hover:text-gray-200" to="/cohorts/create">Create Cohort</Link>
           </nav>
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
+          <button className="lg:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -39,16 +41,32 @@ function Layout() {
         </div>
         {/* Mobile Menu */}
         {isOpen && (
-          <nav className="md:hidden bg-blue-700 p-4">
-            <Link className="block py-2 hover:text-gray-200" to="/">Home</Link>
+          <nav className="lg:hidden bg-blue-700 p-4">
             <Link className="block py-2 hover:text-gray-200" to="/degrees/all">All Degrees</Link>
-            <Link className="block py-2 hover:text-gray-200" to="/degrees/COMSCI">COMSCI</Link>
             <Link className="block py-2 hover:text-gray-200" to="/degrees/create">Create Degree</Link>
+            <Link className="block py-2 hover:text-gray-200" to="/modules/all">All Modules</Link>
+            <Link className="block py-2 hover:text-gray-200" to="/modules/create">Create Module</Link>
+            <Link className="block py-2 hover:text-gray-200" to="/cohorts/all">All Cohorts</Link>
+            <Link className="block py-2 hover:text-gray-200" to="/cohorts/create">Create Cohort</Link>
           </nav>
         )}
       </header>
 
       <Outlet />
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto text-center">
+          <p className="text-lg">&copy; 2025 Uniportal</p>
+          <div className="mt-4">
+            <Link  className="text-gray-400 hover:text-white px-4">
+              Privacy Policy
+            </Link>
+            <Link  className="text-gray-400 hover:text-white px-4">
+              Terms of Service
+            </Link>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

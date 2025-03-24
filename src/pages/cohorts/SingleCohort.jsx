@@ -73,7 +73,7 @@ function SingleCohort() {
         View Degree
       </Link>
       <Link
-        // to={"/modules/" + cohort.degree.split("/").slice(-2, -1)}
+        to={"/modules/?delivered_to=" + cohort.id}
         className="px-6 py-3 bg-white text-blue-600 dark:bg-blue-700 dark:text-white font-semibold rounded-lg shadow-md hover:bg-gray-200 dark:hover:bg-blue-600 transition transform hover:scale-105">
         View Modules Delivered
       </Link>
