@@ -32,17 +32,17 @@ function LoadingSingleCohort() {
   )
 }
 function SingleCohort() {
-  let { id } = useParams();
+  const { id } = useParams();
   const [cohort, setCohort] = useState();
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
   useEffect(() => {
+    document.title = "Cohort - " + id
     const fetchCohort = async () => {
       const response = await fetch("/api/cohort/" + id);
       const data = await response.json()
       const studentResponse = await fetch("/api/student/?cohort=" + id);
       const studentData = await studentResponse.json()
-      document.title = "Cohort -" + id
       setCohort(data);
       setStudents(studentData)
       setLoading(false)

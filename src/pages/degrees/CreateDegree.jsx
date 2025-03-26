@@ -55,7 +55,7 @@ function CreateDegree() {
   };
 
   return (
-    <div className="w-full min-h-[92vh] flex items-center justify-center">
+    <div className="w-full min-h-[92vh] flex items-center justify-center bg-gray-200 dark:bg-gray-900">
       <div className="max-w-xl w-full mx-auto p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
         <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
           Create a Degree

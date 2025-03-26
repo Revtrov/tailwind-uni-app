@@ -10,11 +10,11 @@ function CreateCohort() {
   });
   const [degrees, setDegrees] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
   useEffect(() => {
     document.title = "Create Cohort";
-    
+
     const fetchData = async () => {
       try {
         const response = await fetch("/api/degree/");
@@ -56,7 +56,7 @@ function CreateCohort() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        setError(Object.keys(errorData).map(key=>key +": "+ errorData[key]) || "Failed to create cohort."); 
+        setError(Object.keys(errorData).map(key => key + ": " + errorData[key]) || "Failed to create cohort.");
         return;
       }
 
@@ -69,7 +69,7 @@ function CreateCohort() {
   };
 
   return (
-    <div className="w-full min-h-[92vh] flex items-center justify-center">
+    <div className="w-full min-h-[92vh] flex items-center justify-center bg-gray-200 dark:bg-gray-900">
       <div className="max-w-xl w-full mx-auto p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
         <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Create a Cohort</h2>
 

@@ -8,6 +8,7 @@ function AllCohorts() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    document.title = "All Cohorts"
     const fetchData = async () => {
       try {
         const response = await fetch("/api/cohort");

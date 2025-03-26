@@ -15,6 +15,7 @@ import AllModules from './pages/modules/AllModules';
 import SingleModule from './pages/modules/SingleModule';
 import ModulesDeliveredTo from './pages/modules/ModulesDeliveredTo';
 import CreateModule from './pages/modules/CreateModule';
+import StudentsInModule from './pages/students/StudentsInModule';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/modules/:code" element={<SingleModule />} />
           <Route path="/modules" element={<ModulesDeliveredTo />} />
           <Route path="/modules/create" element={<CreateModule />} />
+          <Route path="/modules/:code/students" element={<StudentsInModule />} />
 
           {/* 
           

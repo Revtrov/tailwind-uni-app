@@ -1,4 +1,4 @@
-function StudentCardLoading({index}) {
+function LoadingStudentCard({index}) {
   return (
     <div className="bg-white dark:bg-gray-700 shadow-md rounded-xl p-4 text-center w-full animate-pulse" key={index}>
       <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded w-3/4 mx-auto"></div>
@@ -9,5 +9,5 @@ function StudentCardLoading({index}) {
   );
 }
 
-export default StudentCardLoading;
+export default LoadingStudentCard;
   
