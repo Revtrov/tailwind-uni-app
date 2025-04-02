@@ -1,7 +1,7 @@
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 import ModuleCard from "../../components/ModuleCard/ModuleCard";
 import LoadingModuleCard from "../../components/ModuleCard/LoadingModuleCard";
-import { useSearchParams, useNavigate } from "react-router-dom";
 function ModulesDeliveredTo() {
   const [searchParams] = useSearchParams()
   const cohort = searchParams.get("delivered_to");

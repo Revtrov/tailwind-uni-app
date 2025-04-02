@@ -1,5 +1,5 @@
 import { useEffect, useState, } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ModuleCard from "../../components/ModuleCard/ModuleCard";
 import LoadingModuleCard from "../../components/ModuleCard/LoadingModuleCard";
 import GradeRow from "../../components/GradeRow/GradeRow";
@@ -81,8 +81,6 @@ function SingleStudent() {
       alert("Error deleting module. Please try again.");
     }
   };
-  
-  
   
   if (loading) return <LoadingSingleStudent />;
   return (

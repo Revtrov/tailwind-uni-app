@@ -1,20 +1,22 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import degreeImage from '../../assets/degree.png'
 import CohortCard from "../../components/CohortCard/CohortCard";
 import LoadingCohortCard from "../../components/CohortCard/LoadingCohortCard";
+
 function SingleDegree() {
-  let { code } = useParams();
+  const { code } = useParams();
   const [degree, setDegrees] = useState()
   const [cohorts, setCohorts] = useState();
   const [loading, setLoading] = useState(true)
   useEffect(() => {
+    document.title = "Degree -" + code
     const fetchData = async () => {
       const response = await fetch("/api/degree/" + code);
       const cohortResponse = await fetch("/api/cohort/?degree=" + code);
       const data = await response.json();
       const cohortData = await cohortResponse.json();
-      document.title = "Degree -" + code
       setDegrees(data);
       setCohorts(cohortData);
       setLoading(false)

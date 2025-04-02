@@ -29,7 +29,6 @@ function GradeRow({ grade }) {
       >
         Edit
       </Link>
-
     </div>
 
   )

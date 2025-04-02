@@ -8,6 +8,7 @@ import CreateDegree from './pages/degrees/CreateDegree';
 import SingleCohort from './pages/cohorts/SingleCohort'
 import AllCohorts from './pages/cohorts/AllCohorts';
 import CreateCohort from './pages/cohorts/CreateCohort';
+import StudentsInCohort from'./pages/cohorts/StudentsInCohort';
 
 import SingleStudent from './pages/students/SingleStudent'
 import StudentsInModule from './pages/students/StudentsInModule';
@@ -31,6 +32,7 @@ function App() {
 
           <Route path="/cohorts/all" element={<AllCohorts />} />
           <Route path="/cohorts/:id" element={<SingleCohort />} />
+          <Route path="/cohorts/:id/students" element={<StudentsInCohort />} />
           <Route path="/cohorts/create" element={<CreateCohort />} />
 
           <Route path="/students/:id" element={<SingleStudent />} />
@@ -46,11 +48,6 @@ function App() {
 
           
           <Route path="*" element={<Navigate to="/" replace />} />
-
-          {/* 
-          
-          <Route path="/students/create" element={<CreateStudent />} />
-          <Route path="/students/:id/module/:code" element={<SetStudentModuleGrade />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import LoadingStudentCard from "../../components/StudentCard/LoadingStudentCard";
 import { useParams } from "react-router-dom";
 import StudentCard from "../../components/StudentCard/StudentCard";
+import LoadingStudentCard from "../../components/StudentCard/LoadingStudentCard";
 function StudentsInModule(){
   const [loading, setLoading] = useState(true);
   const [students, setStudents] = useState([])

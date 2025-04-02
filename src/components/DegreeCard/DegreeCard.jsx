@@ -17,7 +17,6 @@ function Degree({ degree, onDelete }) {
       animate={{ opacity: isRemoving ? 0 : 1, scale: isRemoving ? 0.8 : 1 }}
       transition={{ duration: 0.3 }}
     >
-
       {/* Degree Details */}
       <div className="p-6">
         <h2 className="font-bold text-xl text-gray-900 dark:text-white">{degree.full_name}</h2>

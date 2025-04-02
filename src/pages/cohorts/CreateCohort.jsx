@@ -14,7 +14,6 @@ function CreateCohort() {
 
   useEffect(() => {
     document.title = "Create Cohort";
-
     const fetchData = async () => {
       try {
         const response = await fetch("/api/degree/");

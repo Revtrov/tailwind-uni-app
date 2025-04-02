@@ -1,11 +1,11 @@
 import { useParams, Link } from "react-router-dom"
-import { useState, useEffect, use } from "react"
+import { useState, useEffect } from "react"
 function SingleModule() {
   const { code } = useParams();
   const [module, setModule] = useState();
   const [loading, setLoading] = useState();
   useEffect(() => {
-    document.title = "Module - "+code
+    document.title = "Module - " + code
     const fetchData = async () => {
       const response = await fetch("/api/module/" + code);
       if (!response.ok) throw new Error("Failed to find module")
