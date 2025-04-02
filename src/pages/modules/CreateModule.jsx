@@ -36,7 +36,7 @@ function CreateModule() {
           : prev[name].filter((item) => item !== value), // Remove value from array if unchecked
       }));
     } else {
-      // For regular inpu
+      // For regular input
       setFormData((prev) => ({
         ...prev,
         [name]: value,

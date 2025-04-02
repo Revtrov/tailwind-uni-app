@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate  } from 'react-router-dom'
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import SingleDegree from './pages/degrees/SingleDegree';
@@ -10,12 +10,14 @@ import AllCohorts from './pages/cohorts/AllCohorts';
 import CreateCohort from './pages/cohorts/CreateCohort';
 
 import SingleStudent from './pages/students/SingleStudent'
+import StudentsInModule from './pages/students/StudentsInModule';
+import CreateStudent from './pages/students/CreateStudent';
 
 import AllModules from './pages/modules/AllModules';
-import SingleModule from './pages/modules/SingleModule';
-import ModulesDeliveredTo from './pages/modules/ModulesDeliveredTo';
 import CreateModule from './pages/modules/CreateModule';
-import StudentsInModule from './pages/students/StudentsInModule';
+import ModulesDeliveredTo from './pages/modules/ModulesDeliveredTo';
+import SingleModule from './pages/modules/SingleModule';
+import SetStudentGrade from './pages/modules/SetStudentGrade';
 
 function App() {
   return (
@@ -32,12 +34,18 @@ function App() {
           <Route path="/cohorts/create" element={<CreateCohort />} />
 
           <Route path="/students/:id" element={<SingleStudent />} />
+          <Route path="/students/create" element={<CreateStudent />} />
+          
 
           <Route path="/modules/all" element={<AllModules />} />
           <Route path="/modules/:code" element={<SingleModule />} />
           <Route path="/modules" element={<ModulesDeliveredTo />} />
           <Route path="/modules/create" element={<CreateModule />} />
           <Route path="/modules/:code/students" element={<StudentsInModule />} />
+          <Route path="/modules/:code/grades" element={<SetStudentGrade />} />
+
+          
+          <Route path="*" element={<Navigate to="/" replace />} />
 
           {/* 
           

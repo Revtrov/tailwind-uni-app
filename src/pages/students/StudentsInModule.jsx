@@ -12,18 +12,18 @@ function StudentsInModule(){
       const response = await fetch("/api/module/" + code);
       if (!response.ok) throw new Error("Error loading modules")
       const data = await response.json();
-      let allStudents = [];
-      for (const cohort of data.delivered_to) {
-        const studentResponse = await fetch("/api/student/?cohort=" + cohort.split("cohort/")[1].replace("/", ""))
-        const studentData = await studentResponse.json()
-        allStudents = [...allStudents, ...studentData];
-      }
+      const allStudents = await Promise.all(
+        data.delivered_to.map(async (cohort) => {
+          const studentResponse = await fetch("/api/student/?cohort=" + cohort.split("cohort/")[1].replace("/", ""));
+          const studentData = await studentResponse.json();
+          return studentData;
+        })
+      ).then(responses => responses.flat());
       setStudents(allStudents);
       setLoading(false);
     }
     fetchData()
   }, [])
-  console.log(students);
   if (loading) {
     return (
       <div className="bg-gray-300 dark:bg-slate-900">
@@ -46,7 +46,7 @@ function StudentsInModule(){
        </h3>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
          {students.map((student, index) =>
-           <StudentCard key={index} student={student}/>
+           <StudentCard key={index} student={student} module_code={code}/>
          )}
        </div>
      </div>

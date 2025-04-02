@@ -71,10 +71,8 @@ function SingleStudent() {
   }, [id])
   
   const handleDelete = async (code) => {
-    console.log(`Attempting to delete module with code: ${code}`); // Debugging line  
     try {
       const response = await fetch(`/api/module/${code}/`, { method: "DELETE" });
-      console.log("Delete response:", response); // Debugging line
       if (!response.ok) throw new Error("Failed to delete module.");
   
       setModules((prevModules) => prevModules.filter((module) => module.code !== code));
@@ -138,7 +136,7 @@ function SingleStudent() {
         <div className="mt-6 w-full">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Modules</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            { modules.map((module, index) => <ModuleCard key={index} module={module} onDelete={handleDelete}/>)}
+            { modules.map((module, index) => <ModuleCard key={index} module={module} onDelete={handleDelete} student={student}/>)}
           </div>
         </div>
       </div>

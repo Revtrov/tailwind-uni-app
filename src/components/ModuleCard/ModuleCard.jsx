@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion";
 import { useState } from "react";
-function ModuleCard({ module, onDelete }) {
+function ModuleCard({ module, onDelete, student }) {
   const [isRemoving, setIsRemoving] = useState(false)
   const handleRemove = () => {
     setIsRemoving(true);
@@ -36,7 +36,7 @@ function ModuleCard({ module, onDelete }) {
           ))}
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 space-y-2">
           <Link
             to={`/modules/${module.code}`}
             className="block w-full text-center px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 transition-all"
@@ -44,12 +44,20 @@ function ModuleCard({ module, onDelete }) {
             View Module
           </Link>
         </div>
-        <button
-          onClick={() => handleRemove()}
-          className="block w-full mt-3 bg-red-600 dark:bg-red-500 text-white px-4 py-2 text-sm font-semibold cursor-pointer rounded-lg hover:bg-red-700 dark:hover:bg-red-400 transition"
-        >
-          Delete
-        </button>
+        <div className={`grid ${student?"grid-cols-2":"grid-cols-1"} align-center gap-x-2`}>
+          {student ? <Link
+            to={`/modules/${module.code}/grades/?student=${student.student_id}`}
+            className="block w-full mt-3 text-center items-center justify-center align-center flex px-2 py-1 bg-slate-700 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-slate-500 dark:bg-slate-700 dark:hover:bg-slate-600 transition"
+          >
+            Set Student Grade
+          </Link> : null}
+          <button
+            onClick={() => handleRemove()}
+            className="block w-full mt-3 bg-red-600 dark:bg-red-500 text-white px-2 py-1 text-sm font-semibold cursor-pointer rounded-lg hover:bg-red-700 dark:hover:bg-red-400 transition"
+          >
+            Delete Module
+          </button>
+        </div>
       </div>
     </motion.div>
   )

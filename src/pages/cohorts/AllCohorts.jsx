@@ -41,7 +41,7 @@ function AllCohorts() {
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 w-full flex items-center justify-center py-3">
           All Cohorts
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-6">
           {[...Array(12)].map((_, index) => (
             <LoadingCohortCard key={index}/>
           ))}
@@ -62,7 +62,7 @@ function AllCohorts() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-6">
         {cohorts.map((cohort) => (
           <CohortCard key={cohort.id} cohort={cohort} onDelete={handleDelete}/>
         ))}

@@ -6,12 +6,12 @@ function Layout() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <header className="bg-blue-600 text-white shadow-md w-full h-[8vh]">
-        <div className="container mx-auto flex justify-between items-center p-4 h-full">
+      <header className="bg-blue-600 text-white shadow-md w-full ">
+        <div className="container mx-auto flex justify-between items-center p-4 h-[8vh]">
           <Link className="text-2xl font-bold flex items-center h-full" to="/">
             <img
               src={logo}
-              className="px-2 pe-5 h-[100%] object-contain"
+              className="px-2 pe-5 object-contain h-full"
               alt="Bank logo"
             />
             {/* Bank icons created by Freepik - Flaticon */}
@@ -25,6 +25,7 @@ function Layout() {
             <Link className="hover:text-gray-200" to="/modules/create">Create Module</Link>
             <Link className="hover:text-gray-200" to="/cohorts/all">All Cohorts</Link>
             <Link className="hover:text-gray-200" to="/cohorts/create">Create Cohort</Link>
+            <Link className="hover:text-gray-200" to="/students/create">Create Student</Link>
           </nav>
           <button className="lg:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
             <svg
@@ -48,6 +49,7 @@ function Layout() {
             <Link className="block py-2 hover:text-gray-200" to="/modules/create">Create Module</Link>
             <Link className="block py-2 hover:text-gray-200" to="/cohorts/all">All Cohorts</Link>
             <Link className="block py-2 hover:text-gray-200" to="/cohorts/create">Create Cohort</Link>
+            <Link className="block py-2 hover:text-gray-200" to="/students/create">Create Student</Link>
           </nav>
         )}
       </header>
